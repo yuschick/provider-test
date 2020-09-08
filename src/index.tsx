@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { createStore, StoreProvider } from 'easy-peasy';
 
 import { storeModel } from './context/model';
