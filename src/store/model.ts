@@ -1,4 +1,4 @@
-import groupsModel, { GroupsModel } from 'groups/groupStore';
+import groupsModel, { GroupsModel } from '../groups/groupStore';
 
 export interface StoreModel {
   groups: GroupsModel;
