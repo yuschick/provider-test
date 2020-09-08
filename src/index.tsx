@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { StoreProvider } from 'easy-peasy';
+import { createStore, StoreProvider } from 'easy-peasy';
 
-import store from './context';
+import { storeModel } from './context/model';
 import { usePositiveStore, usePositiveActions } from './context/hooks';
 
 import { Targets } from './types/global';
@@ -11,13 +11,18 @@ interface Props {
 }
 
 const PositiveProvider: React.FC<Props> = ({ target, children }) => {
-  const setTarget = usePositiveActions(actions => actions.setTarget);
+  let store,
+    enhancedStoreModel = storeModel;
 
   useEffect(() => {
     if (!target) return;
 
-    setTarget(target);
-  }, [target, setTarget]);
+    enhancedStoreModel.target = target;
+  }, [target]);
+
+  store = createStore(enhancedStoreModel, {
+    injections: {},
+  });
 
   return <StoreProvider store={store}>{children}</StoreProvider>;
 };
