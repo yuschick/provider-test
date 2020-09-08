@@ -11,16 +11,16 @@ interface Props {
 }
 
 const PositiveProvider: React.FC<Props> = ({ target, children }) => {
-  let store,
-    enhancedStoreModel = storeModel;
+  console.log('HEY---', target);
+  let store;
 
   useEffect(() => {
     if (!target) return;
 
-    enhancedStoreModel.target = target;
+    storeModel.target = target;
   }, [target]);
 
-  store = createStore(enhancedStoreModel, {
+  store = createStore(storeModel, {
     injections: {},
   });
 
