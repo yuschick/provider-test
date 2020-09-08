@@ -1,5 +1,4 @@
 import { Action, action, Thunk, thunk } from 'easy-peasy';
-import { useQuery } from 'react-query';
 
 type Error = {
   fetchingAudiences: boolean;
@@ -38,12 +37,7 @@ const storeModel: AudiencesModel = {
   }),
 
   fetchAudiences: thunk(async () => {
-    const { isLoading, error, data } = useQuery(
-      'repoData',
-      async () =>
-        await fetch('https://api.github.com/repos/tannerlinsley/react-query')
-    );
-    return { isLoading, error, data };
+    console.log('womp womp');
   }),
 };
 
