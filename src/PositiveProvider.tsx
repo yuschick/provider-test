@@ -2,7 +2,7 @@ import React from 'react';
 import { createStore, StoreProvider } from 'easy-peasy';
 
 import { storeModel } from './store';
-import { Targets, Languages } from './types/global';
+import { Targets, Languages } from 'types/global';
 
 interface Props {
   target: Targets;

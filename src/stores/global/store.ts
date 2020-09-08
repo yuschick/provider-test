@@ -1,6 +1,6 @@
 import { Action, action } from 'easy-peasy';
 
-import { Targets, Languages } from '../../types/global';
+import { Targets, Languages } from 'types/global';
 
 export interface GlobalModel {
   target: Targets | undefined;
