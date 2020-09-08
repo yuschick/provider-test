@@ -1,5 +1,5 @@
-import globalModel, { GlobalModel } from '../global/store';
-import groupsModel, { GroupsModel } from '../groups/store';
+import globalModel, { GlobalModel } from '../stores/global/store';
+import groupsModel, { GroupsModel } from '../stores/groups/store';
 
 export interface StoreModel extends GlobalModel {
   groups: GroupsModel;
