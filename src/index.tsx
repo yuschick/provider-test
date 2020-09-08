@@ -9,6 +9,7 @@ import { Targets } from './types/global';
 interface Props {
   target: Targets;
 }
+
 const PositiveProvider: React.FC<Props> = ({ target, children }) => {
   const { setTarget } = usePositiveActions(actions => actions);
 
