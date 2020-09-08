@@ -1,7 +1,9 @@
+import groupsModel, { GroupsModel } from 'groups/groupStore';
+
 export interface StoreModel {
-  count: number;
+  groups: GroupsModel;
 }
 
 export const storeModel: StoreModel = {
-  count: 10,
+  groups: groupsModel,
 };
