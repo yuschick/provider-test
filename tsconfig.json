@@ -15,12 +15,6 @@
     "moduleResolution": "node",
     "jsx": "react",
     "esModuleInterop": true,
-    "typeRoots": ["./src/types"],
-    "baseUrl": "./",
-    "paths": {
-      "stores": ["./src/stores"],
-      "types": ["./src/types"],
-      "*": ["src/*", "node_modules/*"]
-    }
+    "typeRoots": ["./src/types"]
   }
 }

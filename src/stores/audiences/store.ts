@@ -37,7 +37,7 @@ const storeModel: AudiencesModel = {
     state.audiences = payload;
   }),
 
-  fetchAudiences: thunk(async (actions, payload) => {
+  fetchAudiences: thunk(async () => {
     const { isLoading, error, data } = useQuery(
       'repoData',
       async () =>
