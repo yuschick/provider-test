@@ -7,13 +7,17 @@ function useAudiences(): UseAudiences {
   const { target, language } = usePositiveStore();
   console.log(target, language);
 
-  const fetchAudiencesQuery = useQuery('fetchAudiences', () =>
-    fetch('https://reqres.in/api/unknown')
+  const fetchAudiencesQuery = useQuery(
+    'fetchAudiences',
+    () => fetch('https://reqres.in/api/unknown'),
+    {
+      enabled: false,
+    }
   );
 
   const fetchAudiences = () => {
-    const { isLoading, isError, data, error } = fetchAudiencesQuery;
-    return { isLoading, isError, data, error };
+    const { isLoading, isError, data, error, refetch } = fetchAudiencesQuery;
+    return { isLoading, isError, data, error, refetch };
   };
 
   return { fetchAudiences };

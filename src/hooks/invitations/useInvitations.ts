@@ -7,13 +7,17 @@ function useInvitations(): UseInvitations {
   const { target, language } = usePositiveStore();
   console.log(target, language);
 
-  const fetchInvitationsQuery = useQuery('fetchExercises', () =>
-    fetch('https://reqres.in/api/unknown/2')
+  const fetchInvitationsQuery = useQuery(
+    'fetchExercises',
+    () => fetch('https://reqres.in/api/unknown/2'),
+    {
+      enabled: false,
+    }
   );
 
   const fetchInvitations = () => {
-    const { isLoading, isError, data, error } = fetchInvitationsQuery;
-    return { isLoading, isError, data, error };
+    const { isLoading, isError, data, error, refetch } = fetchInvitationsQuery;
+    return { isLoading, isError, data, error, refetch };
   };
 
   return { fetchInvitations };

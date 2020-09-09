@@ -7,13 +7,17 @@ function useStrengths(): UseStrengths {
   const { target, language } = usePositiveStore();
   console.log(target, language);
 
-  const fetchStrengthsQuery = useQuery('fetchStrengths', () =>
-    fetch('https://reqres.in/api/unknown/2')
+  const fetchStrengthsQuery = useQuery(
+    'fetchStrengths',
+    () => fetch('https://reqres.in/api/unknown/2'),
+    {
+      enabled: false,
+    }
   );
 
   const fetchStrengths = () => {
-    const { isLoading, isError, data, error } = fetchStrengthsQuery;
-    return { isLoading, isError, data, error };
+    const { isLoading, isError, data, error, refetch } = fetchStrengthsQuery;
+    return { isLoading, isError, data, error, refetch };
   };
 
   return { fetchStrengths };
