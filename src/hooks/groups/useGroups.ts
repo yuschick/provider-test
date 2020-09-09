@@ -17,7 +17,7 @@ function useGroups(): UseGroups {
 
   const fetchGroups = () => {
     const groups = fetchGroupsQuery;
-    return groups;
+    return { groups, refetch: fetchGroupsQuery.refetch };
   };
 
   return { fetchGroups };
