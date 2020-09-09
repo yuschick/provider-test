@@ -7,18 +7,13 @@ function useGroups(): UseGroups {
   const { target, language } = usePositiveStore();
   console.log(target, language);
 
-  const fetchGroupsQuery = useQuery(
+  const { refetch: fetchGroups } = useQuery(
     'fetchGroups',
     () => fetch('https://reqres.in/api/users'),
     {
       enabled: false,
     }
   );
-
-  const fetchGroups = () => {
-    const { isLoading, isError, data, error, refetch } = fetchGroupsQuery;
-    return { isLoading, isError, data, error, refetch };
-  };
 
   return { fetchGroups };
 }
