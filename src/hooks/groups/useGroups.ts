@@ -1,10 +1,22 @@
 import { useQuery } from 'react-query';
 
-function useGroups(): any {
-  const { isLoading, isError, data, error } = useQuery('todos', () =>
-    fetch('https://dummyapi.io/data/api/user')
+import usePositiveStore from '../store';
+import { UseGroups } from '../../types/groups';
+
+function useGroups(): UseGroups {
+  const { target, language } = usePositiveStore();
+  console.log(target, language);
+
+  const fetchGroupsQuery = useQuery('fetchGroups', () =>
+    fetch('https://reqres.in/api/users')
   );
-  return { isLoading, isError, data, error };
+
+  const fetchGroups = () => {
+    const { isLoading, isError, data, error } = fetchGroupsQuery;
+    return { isLoading, isError, data, error };
+  };
+
+  return { fetchGroups };
 }
 
 export default useGroups;
