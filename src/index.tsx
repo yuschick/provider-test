@@ -8,7 +8,7 @@ import useStore from './hooks/store';
 import useStrengths from './hooks/strengths';
 import useUsers from './hooks/users';
 
-export default {
+export {
   useAudiences,
   useExercises,
   useGroups,
