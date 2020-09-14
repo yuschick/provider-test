@@ -11,13 +11,20 @@ function useAudiences(): UseAudiences {
 
   const audienceQuery = useQuery(
     'fetchAudiences',
-    () => fetch('https://reqres.in/api/unknown'),
+    () => {
+      console.log('in query');
+      fetch('https://reqres.in/api/unknown');
+    },
     {
       enabled: false,
     }
   );
 
-  const fetchAudiences = () => audienceQuery.refetch();
+  const fetchAudiences = () => {
+    const { refetch } = audienceQuery;
+    refetch();
+  };
+
   const audiences = cleanAudiences(audienceQuery.data);
 
   return { fetchAudiences, audiences };
