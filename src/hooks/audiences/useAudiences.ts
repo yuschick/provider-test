@@ -13,7 +13,9 @@ function useAudiences(): UseAudiences {
     'fetchAudiences',
     () => {
       console.log('in query');
-      fetch('https://reqres.in/api/unknown');
+      fetch(
+        'https://api.github.com/repos/tannerlinsley/react-query'
+      ).then(res => res.json());
     },
     {
       enabled: false,
@@ -22,6 +24,7 @@ function useAudiences(): UseAudiences {
 
   const fetchAudiences = () => {
     const { refetch } = audienceQuery;
+    console.log('in refetch');
     refetch();
   };
 
