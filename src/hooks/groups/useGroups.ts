@@ -1,24 +1,21 @@
+import client, { paths } from '../../api';
 import { useQuery } from 'react-query';
-import { QueryResult, QueryConfig } from 'react-query/types';
 
-import usePositiveStore from '../store';
 import { UseGroups } from '../../types/groups';
 
 function useGroups(): UseGroups {
-  const { target, language } = usePositiveStore();
-  console.log(target, language);
+  const fetchGroupsQuery = useQuery(
+    'fetchGroups',
+    () => client.get(paths.groups).then((res: any) => res.json()),
+    {
+      enabled: false,
+    }
+  );
 
-  const useFetchGroups = (
-    options?: QueryConfig<Response>
-  ): QueryResult<Response> => {
-    return useQuery(
-      'fetchGroups',
-      () => fetch('https://reqres.in/api/users'),
-      options
-    );
+  return {
+    fetchGroups: fetchGroupsQuery.refetch,
+    groups: fetchGroupsQuery.data,
   };
-
-  return { fetchGroups: useFetchGroups };
 }
 
 export default useGroups;

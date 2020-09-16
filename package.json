@@ -31,9 +31,9 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "positive-provider",
+  "name": "positive-store",
   "author": "Daniel Yuschick",
-  "module": "dist/positive-provider.esm.js",
+  "module": "dist/positive-store.esm.js",
   "devDependencies": {
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
@@ -45,7 +45,8 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "easy-peasy": "^3.3.1",
+    "@types/node": "^14.10.2",
+    "axios": "^0.20.0",
     "react-query": "^2.15.4"
   }
 }
